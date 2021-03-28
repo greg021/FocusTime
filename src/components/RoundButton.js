@@ -3,7 +3,10 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 export const RoundButton = ({title = '', size = 125, ...props}) => {
   return (
-    <TouchableOpacity activeOpacity={0.7} style={styles(size).container}>
+    <TouchableOpacity
+      activeOpacity={0.7}
+      style={styles(size).container}
+      onPress={props.onPress}>
       <Text style={styles(size).title}>{title}</Text>
     </TouchableOpacity>
   );
@@ -21,7 +24,7 @@ const styles = size =>
       justifyContent: 'center',
     },
     title: {
-      fontSize: size / 2.2,
+      fontSize: size / 3,
       color: '#fff',
     },
   });

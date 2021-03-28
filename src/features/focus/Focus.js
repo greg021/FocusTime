@@ -3,7 +3,8 @@ import {StyleSheet, Text, TextInput, View} from 'react-native';
 import {RoundButton} from '../../components/RoundButton';
 import {fontSizes, spacings} from '../../utils/sizes';
 
-export const Focus = ({focusSubject, setFocusSubject}) => {
+export const Focus = ({addSubject}) => {
+  const [tmp, setTmp] = useState('');
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -13,14 +14,10 @@ export const Focus = ({focusSubject, setFocusSubject}) => {
         <TextInput
           style={styles.input}
           onSubmitEditing={({nativeEvent}) => {
-            focusSubject = nativeEvent.text;
+            setTmp(nativeEvent.text);
           }}
         />
-        <RoundButton
-          title="+"
-          size={50}
-          onPress={() => setFocusSubject(focusSubject)}
-        />
+        <RoundButton title="+" size={50} onPress={() => addSubject(tmp)} />
       </View>
     </View>
   );

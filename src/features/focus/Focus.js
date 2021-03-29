@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import {RoundButton} from '../../components/RoundButton';
 import {fontSizes, spacings} from '../../utils/sizes';
+import {colors} from '../../utils/colors';
 
 export const Focus = ({addSubject}) => {
   const [tmp, setTmp] = useState('');
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     marginHorizontal: spacings.md,
   },
   title: {
-    color: 'white',
+    color: colors.textPrimary,
     fontSize: fontSizes.lg,
     fontWeight: 'bold',
   },
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: colors.textSecondary,
     borderRadius: 5,
     fontSize: fontSizes.md,
     marginRight: spacings.sm,

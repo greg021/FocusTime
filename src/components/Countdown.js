@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Text, StyleSheet} from 'react-native';
 import {fontSizes, spacings} from '../utils/sizes';
+import {colors} from '../utils/colors';
 
 const minutesToMillis = min => min * 1000 * 60;
 const formatTime = time => (time < 10 ? `0${time}` : time);
@@ -62,8 +63,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: fontSizes.xxxl,
     fontWeight: 'bold',
-    color: '#fff',
+    color: colors.textPrimary,
     padding: spacings.lg,
-    backgroundColor: 'rgba(94, 132, 226, 0.3)',
+    backgroundColor: colors.secondary,
   },
 });

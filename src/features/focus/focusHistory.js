@@ -3,6 +3,7 @@ import {StyleSheet, Text, FlatList, View} from 'react-native';
 
 import {fontSizes, spacings} from '../../utils/sizes';
 import {RoundButton} from '../../components/RoundButton';
+import {colors} from '../../utils/colors';
 
 export const FocusHistory = ({focusHistory, setFocusHistory}) => {
   const clearHistory = () => {
@@ -12,7 +13,7 @@ export const FocusHistory = ({focusHistory, setFocusHistory}) => {
   return (
     <>
       <View style={{flex: 0.5, alignItems: 'center'}}>
-        <Text style={{fontSize: fontSizes.lg, color: 'white'}}>
+        <Text style={{fontSize: fontSizes.lg, color: colors.textPrimary}}>
           Things we've focused on
         </Text>
         {!!focusHistory.length && (
@@ -32,7 +33,7 @@ export const FocusHistory = ({focusHistory, setFocusHistory}) => {
           />
         )}
         {!focusHistory.length && (
-          <Text style={{color: 'white'}}>Nothing yet</Text>
+          <Text style={{color: colors.textSecondary}}>Nothing yet</Text>
         )}
       </View>
       <View style={styles.clearContainer}>
@@ -44,7 +45,7 @@ export const FocusHistory = ({focusHistory, setFocusHistory}) => {
 
 const styles = StyleSheet.create({
   historyItem: status => ({
-    color: status > 0 ? '#22ff33' : '#ff8534',
+    color: status > 0 ? colors.success : colors.danger,
     fontSize: fontSizes.md,
     fontWeight: 'bold',
   }),

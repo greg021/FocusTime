@@ -6,6 +6,7 @@ import {Focus} from './src/features/focus/Focus';
 import {FocusHistory} from './src/features/focus/focusHistory';
 import {Timer} from './src/features/timer/Timer';
 import {uuidv4} from './src/utils/uuid';
+import {colors} from './src/utils/colors';
 
 const App = () => {
   const [focusSubject, setFocusSubject] = useState(null);
@@ -40,7 +41,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#0077ed" />
+      <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
       {focusSubject ? (
         <Timer
           focusSubject={focusSubject}
@@ -75,7 +76,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0077ed',
+    backgroundColor: colors.primary,
   },
 });
 

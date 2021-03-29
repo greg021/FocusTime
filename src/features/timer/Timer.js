@@ -7,7 +7,7 @@ import * as Progress from 'react-native-progress';
 import {Timing} from './Timing';
 // import KeepAwake from 'react-native-keep-awake';
 
-export const Timer = ({focusSubject, clearSubject, onTimerEnd}) => {
+export const Timer = ({focusSubject, onCancel, onTimerEnd}) => {
   const [minutes, setMinutes] = useState(0.1);
   const [isStarted, setIsStarted] = useState(false);
   const [progress, setProgress] = useState(1);
@@ -81,7 +81,7 @@ export const Timer = ({focusSubject, clearSubject, onTimerEnd}) => {
           )}
         </View>
         <View style={styles.clearSubject}>
-          <RoundButton title="-" size={50} onPress={() => clearSubject()} />
+          <RoundButton title="-" size={50} onPress={() => onCancel()} />
         </View>
       </View>
     </>

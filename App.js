@@ -9,7 +9,13 @@ const App = () => {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#0077ed" />
       {focusSubject ? (
-        <Timer focusSubject={focusSubject} />
+        <Timer
+          focusSubject={focusSubject}
+          onTimerEnd={() => {
+            setFocusSubject(null);
+          }}
+          clearSubject={() => setFocusSubject(null)}
+        />
       ) : (
         <Focus addSubject={setFocusSubject} />
       )}

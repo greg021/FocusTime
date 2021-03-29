@@ -1,18 +1,25 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableNativeFeedback} from 'react-native';
+import {colors} from '../utils/colors';
 
-export const RoundButton = ({title = '', size = 100, ...props}) => {
+export const RoundButton = ({
+  title = '',
+  size = 100,
+  factor = 3.2,
+  ...props
+}) => {
   return (
-    <TouchableOpacity
-      activeOpacity={0.6}
-      style={styles(size).container}
-      onPress={props.onPress}>
-      <Text style={styles(size).title}>{title}</Text>
-    </TouchableOpacity>
+    <TouchableNativeFeedback
+      onPress={props.onPress}
+      background={TouchableNativeFeedback.Ripple(colors.secondary, true)}>
+      <View style={styles(size, factor).container}>
+        <Text style={styles(size, factor).title}>{title}</Text>
+      </View>
+    </TouchableNativeFeedback>
   );
 };
 
-const styles = size =>
+const styles = (size, factor) =>
   StyleSheet.create({
     container: {
       alignItems: 'center',
@@ -25,6 +32,6 @@ const styles = size =>
     },
     title: {
       color: '#fff',
-      fontSize: size / 3.2,
+      fontSize: size / factor,
     },
   });

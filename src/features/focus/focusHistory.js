@@ -37,7 +37,12 @@ export const FocusHistory = ({focusHistory, setFocusHistory}) => {
         )}
       </View>
       <View style={styles.clearContainer}>
-        <RoundButton size={70} title="Clear" onPress={() => clearHistory()} />
+        <RoundButton
+          size={70}
+          factor={3.8}
+          title="clear"
+          onPress={() => clearHistory()}
+        />
       </View>
     </>
   );

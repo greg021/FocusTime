@@ -18,7 +18,12 @@ export const Focus = ({addSubject}) => {
             setTmp(nativeEvent.text);
           }}
         />
-        <RoundButton title="+" size={50} onPress={() => addSubject(tmp)} />
+        <RoundButton
+          title="+"
+          size={50}
+          factor={2}
+          onPress={() => addSubject(tmp)}
+        />
       </View>
     </View>
   );

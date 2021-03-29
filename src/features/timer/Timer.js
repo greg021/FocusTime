@@ -75,12 +75,14 @@ export const Timer = ({focusSubject, onCancel, onTimerEnd}) => {
             <RoundButton
               title="pause"
               size={80}
+              factor={3.8}
               onPress={() => setIsStarted(false)}
             />
           ) : (
             <RoundButton
               title="start"
               size={80}
+              factor={3.8}
               onPress={() => setIsStarted(true)}
             />
           )}

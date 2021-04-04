@@ -15,7 +15,10 @@ export const Focus = ({addSubject}) => {
         <TextInput
           style={styles.input}
           onSubmitEditing={({nativeEvent}) => {
-            setTmp(nativeEvent.text);
+            addSubject(nativeEvent.text);
+          }}
+          onChangeText={data => {
+            setTmp(data);
           }}
         />
         <RoundButton
@@ -50,8 +53,9 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     backgroundColor: colors.textSecondary,
-    borderRadius: 5,
+    borderRadius: 30,
     fontSize: fontSizes.md,
     marginRight: spacings.sm,
+    paddingHorizontal: 15,
   },
 });

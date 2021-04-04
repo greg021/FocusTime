@@ -10,7 +10,7 @@ import {colors} from '../../utils/colors';
 import {Timing} from './Timing';
 
 export const Timer = ({focusSubject, onCancel, onTimerEnd}) => {
-  const [minutes, setMinutes] = useState(10);
+  const [minutes, setMinutes] = useState(12);
   const [isStarted, setIsStarted] = useState(false);
   const [progress, setProgress] = useState(1);
 
@@ -26,9 +26,7 @@ export const Timer = ({focusSubject, onCancel, onTimerEnd}) => {
 
   const onEnd = async () => {
     try {
-      // await soundObject.loadAsync(require('../../../assets/warn.wav'));
-      // await soundObject.playAsync();
-      Vibration.vibrate(2000, false);
+      Vibration.vibrate(1200, false);
     } catch (error) {
       console.log(error);
     }
@@ -51,9 +49,9 @@ export const Timer = ({focusSubject, onCancel, onTimerEnd}) => {
             onEnd={onEnd}
           />
         </View>
-        <View>
+        <View style={{paddingHorizontal: spacings.md}}>
           <Text style={styles.task}>Focused On: </Text>
-          <Text style={{...styles.task, fontWeight: 'bold'}}>
+          <Text numberOfLines={1} style={{...styles.task, fontWeight: 'bold'}}>
             {focusSubject}
           </Text>
         </View>
@@ -67,10 +65,10 @@ export const Timer = ({focusSubject, onCancel, onTimerEnd}) => {
             borderWidth={0}
           />
         </View>
-        <View style={styles.buttonWrapper()}>
+        <View style={styles.buttonWrapper}>
           <Timing changeTime={changeTime} />
         </View>
-        <View style={styles.buttonWrapper({flex: 0.3})}>
+        <View style={styles.buttonWrapper}>
           {isStarted ? (
             <RoundButton
               title="pause"
@@ -110,20 +108,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  buttonWrapper: ({
-    flex = 0.25,
-    padding = spacings.md,
-    justifyContent = 'center',
-  } = {}) => ({
-    flex,
+  buttonWrapper: {
+    flex: 0.28,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent,
-    padding,
-  }),
+    justifyContent: 'center',
+    padding: spacings.md,
+  },
   clearSubject: {
     position: 'absolute',
-    bottom: spacings.lg,
+    bottom: spacings.xl,
     left: spacings.lg,
   },
 });

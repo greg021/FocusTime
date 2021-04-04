@@ -22,11 +22,12 @@ export const FocusHistory = ({focusHistory, setFocusHistory}) => {
               width: '100%',
               height: '100%',
               marginTop: spacings.sm,
+              paddingHorizontal: spacings.md,
             }}
             contentContainerStyle={{alignItems: 'center'}}
             data={focusHistory}
             renderItem={({item, index}) => (
-              <Text style={styles.historyItem(item.status)}>
+              <Text numberOfLines={1} style={styles.historyItem(item.status)}>
                 {item.subject}
               </Text>
             )}
@@ -56,6 +57,7 @@ const styles = StyleSheet.create({
   }),
   clearContainer: {
     alignItems: 'center',
-    padding: spacings.md,
+    paddingBottom: spacings.xl,
+    paddingTop: spacings.md,
   },
 });
